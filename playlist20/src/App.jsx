@@ -4,14 +4,33 @@ import viteLogo from '/vite.svg'
 import './App.css'
 
 function App() {
-  const [val, setval] = useState("anil")
+  const [name, setname] = useState("");
+  const [email,setemail] = useState("");
+  const [password, setpassword] = useState("");
 
+  
   return (
     <>
-<h2>get input field</h2>
-<input value={val} onChange={(e)=>setval(e.target.value)}></input>
-<h1>{val}</h1>
-<button onClick={()=>{setval("")}}>click</button>
+
+<div>controlled component</div>
+<input value={name} placeholder='name'onChange={(e)=>setname(e.target.value)}/>
+<input value={email} placeholder='email'onChange={(e)=>setemail(e.target.value)}/>
+<input value={password} placeholder='password'onChange={(e)=>setpassword(e.target.value)}/>
+<button onClick={()=>{
+   setemail("")
+   setpassword("")
+   setname("")
+}}>click</button>
+
+
+
+<h1>{name}</h1>
+<h1>{email}</h1>
+<h1>{password}</h1>
+
+
+
+
    </>
   )
 }
