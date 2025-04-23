@@ -4,29 +4,44 @@ import viteLogo from '/vite.svg'
 import './App.css'
 
 function App() {
-  const [name, setname] = useState("");
-  const [email,setemail] = useState("");
-  const [password, setpassword] = useState("");
+  // const [name, setname] = useState("");
+  // const [email,setemail] = useState("");
+  // const [password, setpassword] = useState("");
 
+  const[element,setelement]=useState([])
+
+  
+  function handlefn(event){
+    if(event.target.checked){
+      setelement([...element,event.target.id])
+    }else{
+      setelement([element.filter((val)=>val!=event.target.id)])
+    }
+ 
+    
+  }
   
   return (
     <>
 
-<div>controlled component</div>
-<input value={name} placeholder='name'onChange={(e)=>setname(e.target.value)}/>
-<input value={email} placeholder='email'onChange={(e)=>setemail(e.target.value)}/>
-<input value={password} placeholder='password'onChange={(e)=>setpassword(e.target.value)}/>
-<button onClick={()=>{
-   setemail("")
-   setpassword("")
-   setname("")
-}}>click</button>
+<div>handle checkbox in react js </div>
+<input onChange={handlefn} id="php" type='checkbox' value={element} />
+<label htmlFor='php'>php</label>
+<br/>
+<input id="html" onChange={handlefn} type='checkbox' />
+<label htmlFor='html'>html</label>
+<br/>
+
+<input id="node" onChange={handlefn} type='checkbox' />
+<label htmlFor='node'>node</label>
+<br/>
+
+<input id="c++"  onChange={handlefn}type='checkbox' />
+<label htmlFor='c++'>c++</label>
+
+<h1>{element.toString()}</h1>
 
 
-
-<h1>{name}</h1>
-<h1>{email}</h1>
-<h1>{password}</h1>
 
 
 
